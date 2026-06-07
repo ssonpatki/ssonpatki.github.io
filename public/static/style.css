@@ -747,12 +747,16 @@ body:has(button:hover) .cursor { background: var(--accent-2); }
   align-items: center;
   gap: 0.75rem;
   box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(200,240,85,0.1);
-  transform: translateY(120%);
+  transform: translateY(calc(100% + 3rem));  /* ← push fully below viewport */
   transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
   z-index: 9000;
   max-width: 280px;
+  pointer-events: none;  /* ← can't accidentally interact with it */
 }
-.ach-toast.show { transform: translateY(0); }
+.ach-toast.show {
+  transform: translateY(0);
+  pointer-events: auto;
+}
 .toast-icon { font-size: 1.5rem; color: var(--accent); flex-shrink: 0; }
 .toast-title { font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; }
 .toast-name { font-size: 0.85rem; font-weight: 500; margin-top: 1px; }
