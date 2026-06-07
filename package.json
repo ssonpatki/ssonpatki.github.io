@@ -1,7 +1,7 @@
 {
-  "name": "serverless-project",
+  "name": "siya-sonpatki-porfolio",
   "version": "1.0.0",
-  "description": "Learn how to use serverless functions in less than 30 minutes!",
+  "description": "My porfolio for programming, design, etc.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
