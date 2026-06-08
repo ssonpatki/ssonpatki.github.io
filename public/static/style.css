@@ -594,19 +594,24 @@ body:has(button:hover) .cursor { background: var(--accent-2); }
   left: 110px;
   top: 0; bottom: 0;
   width: 1px;
-  background: var(--border);
+  /*background: var(--border);*/
 }
 .timeline-item {
   display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 2rem;
-  padding: 0 0 2.5rem 0;
+  grid-template-columns: 170px 1fr;  /* wider date column */
+  gap: 0 2rem;
+  padding-bottom: 2.5rem;
   position: relative;
 }
-.timeline-item::before {
+.timeline-content {
+  border-left: 1px solid var(--border);
+  padding-left: 1.5rem;
+  position: relative;
+}
+.timeline-content::before {
   content: '';
   position: absolute;
-  left: 106px;
+  left: -5px;
   top: 6px;
   width: 9px;
   height: 9px;
@@ -621,7 +626,8 @@ body:has(button:hover) .cursor { background: var(--accent-2); }
   color: var(--text-muted);
   padding-top: 4px;
   text-align: right;
-  white-space: nowrap;
+  padding-right: 0.5rem;   /* breathing room before the line */
+  word-break: break-word;  /* prevents overflow on narrow screens */
 }
 .timeline-role { font-size: 1rem; font-weight: 500; margin-bottom: 0.2rem; }
 .timeline-company {
@@ -773,10 +779,39 @@ body:has(button:hover) .cursor { background: var(--accent-2); }
   .section { padding: 3rem 1.5rem; }
   .hero-grid { grid-template-columns: 1fr; }
   .hero-right { display: none; }
-  .timeline::before { left: 0; }
-  .timeline-item { grid-template-columns: 1fr; gap: 0.3rem; padding-left: 1.5rem; }
-  .timeline-item::before { left: -4px; }
-  .timeline-date { text-align: left; padding-top: 0; }
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;  /* wider date column */
+    gap: 0 2rem;
+    padding-bottom: 2.5rem;
+    position: relative;
+  }
+  .timeline-content {
+    border-left: 1px solid var(--border);
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  .timeline-content::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 8px rgba(200,240,85,0.4);
+  }
+  .timeline-date {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    padding-top: 4px;
+    text-align: right;
+    padding-right: 0.5rem;   /* breathing room before the line */
+    word-break: break-word;  /* prevents overflow on narrow screens */
+  }
   .contact-layout { grid-template-columns: 1fr; }
   .footer { padding: 1.5rem; flex-direction: column; gap: 0.4rem; text-align: center; }
 }
