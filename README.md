@@ -10,7 +10,7 @@ A personal portfolio website with:
 ## 🗂 File Structure
 
 ```
-portfolio/
+public/
 ├── index.html          ← Main HTML 
 ├── css/
 │   └── style.css       ← All styles (colors, fonts, layout)
