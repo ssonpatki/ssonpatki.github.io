@@ -1,86 +1,583 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name=’robots’ content=’noindex, nofollow’>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Siya Sonpatki</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='static/index.css'>
-    <script src='main.js'></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-  </head>
-  <body class="index">
-    <header class="homeHeader">
-      <img   
-             src="android-chrome-192x192.png"
-             alt="Light blue sqaure with rounded corners, with two, large, white letter S in the center"
-         />
-         <nav>
-          <a href="index.html">Home</a>
-          <a href="aboutMe.html">About Me</a>
-          <a href="projects.html">Projects</a>
-          <a href="contact.html">Contact</a> 
-        </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siya Sonpatki ♥ — Portfolio</title>
+  <meta name="description" content="Portfolio of Siya Sonpatki" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300;1,9..144,600&family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="static/style.css" />
+</head>
+<body>
 
-    <main>
-      
-      <div class="firstContainer">
-        <img src="images/self-portrait.jpg" class="responsive-img-one">
-        <div class="center-left">
-          <h1>
-            <span class="responsive-text">My name is
-          </h1>
+  <!-- ░░ NOISE OVERLAY ░░ -->
+  <div class="noise"></div>
+
+  <!-- ░░ CURSOR ░░ -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- ░░ SIDEBAR NAV ░░ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="avatar-wrap">
+        <div class="avatar-placeholder">
+          <img src="assets/images/profile-pic.png" alt="Profile Picture">
+          <!-- <span class="avatar-initials">YN</span> -->
         </div>
-        <div class="center-right">
-          <h1>
-            <span class="responsive-text">Siya Sonpatki
-          </h1>
+        <div class="status-dot"></div>
+      </div>
+      <div class="sidebar-name">
+        <span class="name-text">Siya Sonpatki</span>
+        <span class="handle">@siyasonpatki</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#about" class="nav-link active" data-section="about">
+        <span class="nav-icon">◈</span> About
+      </a>
+      <a href="#projects" class="nav-link" data-section="projects">
+        <span class="nav-icon">◉</span> Projects
+      </a>
+      <a href="#skills" class="nav-link" data-section="skills">
+        <span class="nav-icon">◌</span> Skills
+      </a>
+      <a href="#experience" class="nav-link" data-section="experience">
+        <span class="nav-icon">◎</span> Experience
+      </a>
+      <a href="#blog" class="nav-link" data-section="blog">
+        <span class="nav-icon">◇</span> Writing
+      </a>
+      <a href="#contact" class="nav-link" data-section="contact">
+        <span class="nav-icon">◈</span> Contact
+      </a>
+    </nav>
+
+    <div class="sidebar-links">
+      <a href="https://github.com/ssonpatki" target="_blank" class="social-link">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/siya-sonpatki" target="_blank" class="social-link">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:siyasonpatki2@gmail.com" class="social-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+        Email
+      </a>
+      <a href="assets/siya-sonpatki-resume.pdf" target="_blank" class="social-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Resume
+      </a>
+    </div>
+
+    <!-- Achievements -->
+    <div class="achievements-wrap">
+      <button class="achievements-toggle" id="achToggle">
+        <span class="trophy-icon">✦</span>
+        <span class="ach-label">Achievements</span>
+        <span class="ach-count" id="achCount">0/6</span>
+      </button>
+      <div class="achievements-panel" id="achPanel">
+        <div class="ach-grid" id="achGrid">
+          <!-- Populated by JS -->
         </div>
       </div>
+    </div>
+  </aside>
 
-      <div class="container">
-        <a href="aboutMe.html">
-          <img src="images/sunset-over-lake.jpg" class="responsive-img">
+  <!-- ░░ MOBILE NAV ░░ -->
+  <header class="mobile-header">
+    <span class="mobile-name">Siya Sonpatki ✿</span>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ░░ MAIN CONTENT ░░ -->
+  <main class="main-content">
+
+    <!-- HERO / ABOUT -->
+    <section class="section hero-section" id="about">
+      <div class="section-label">// about</div>
+
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="availability-badge">
+            <span class="pulse-dot"></span>
+            Site in construction
+          </div>
+
+          <h1 class="hero-title">
+            <span class="title-small">Hello, I'm</span>
+            <span class="title-name">Siya Sonpatki</span>
+            <span class="title-role">Software Developer & AI/ML Engineer</span>
+          </h1>
+
+          <p class="hero-bio">
+            <!-- Replace with your bio -->
+            A passionate [your field] based in [your city]. I love building [what you build] and creating [what you create]. When I'm not [working], you'll find me [hobby].
+          </p>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-num">0+</span>
+              <span class="stat-label">Years Exp.</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">200+</span>
+              <span class="stat-label">Credit Hrs</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">0</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">∞</span>
+              <span class="stat-label">Coffees ☕</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="terminal-card" id="terminalCard">
+            <div class="terminal-bar">
+              <span class="term-dot red"></span>
+              <span class="term-dot yellow"></span>
+              <span class="term-dot green"></span>
+              <span class="term-title">terminal</span>
+            </div>
+            <div class="terminal-body">
+              <div class="term-line"><span class="prompt">$</span> <span class="cmd">whoami</span></div>
+              <div class="term-output">siya_sonpatki</div>
+              <div class="term-line"><span class="prompt">$</span> <span class="cmd">cat skills.txt</span></div>
+              <div class="term-output"><!-- Add your skills here -->
+skill_one, skill_two,
+skill_three, skill_four</div>
+              <div class="term-line"><span class="prompt">$</span> <span class="cmd">echo $LOCATION</span></div>
+              <div class="term-output">Portland, Oregon</div>
+              <div class="term-line"><span class="prompt">$</span> <span class="cmd">echo $STATUS</span></div>
+              <div class="term-output typing">ready to build ✿<span class="cursor-blink">▌</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section-label">// projects</div>
+      <h2 class="section-title">What I've Built <span class="title-accent">✦</span></h2>
+      <p class="section-sub">A selection of work I'm proud of.</p>
+
+      <!-- Category Filter -->
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="design">Design</button>
+        <button class="filter-btn" data-filter="other">Other</button>
+        <!-- Add/rename categories to match your work -->
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+
+        <!-- ╔══════════════════════════╗ -->
+        <!-- ║  DUPLICATE THIS CARD     ║ -->
+        <!-- ║  for each project        ║ -->
+        <!-- ╚══════════════════════════╝ -->
+
+        <article class="project-card" data-category="web">
+          <div class="project-img-wrap">
+            <!-- Replace with your project screenshot -->
+            <div class="project-img-placeholder">
+              <img src="assets/images/mars-rover-autonomous.png" alt="Screenshot of Mars Rover Groundstation">
+              <!-- <span class="placeholder-icon">◉</span> -->
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="project-link-btn" target="_blank">View Project →</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">C#</span>
+              <span class="tag">Unity</span>
+              <span class="tag">ROS2</span>
+              <span class="tag">YOLOv11</span>
+            </div>
+            <h3 class="project-title">Mars Rover Autonomous Systems</h3>
+            <p class="project-desc">Short description of what this project does and why it matters. Replace this with your actual project description.</p>
+            <div class="project-links">
+              <a href="#" target="_blank" class="plink">↗ Live</a>
+              <a href="#" target="_blank" class="plink">⌥ Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="web">
+          <div class="project-img-wrap">
+            <div class="project-img-placeholder">
+              <img src="assets/images/ai-kindgom-simulator.png" alt="Screenshot of AI Kingdom Simulator">
+              <!-- <span class="placeholder-icon">◌</span> -->
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="project-link-btn" target="_blank">View Project →</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Unity</span>
+              <span class="tag">SML</span>
+            </div>
+            <h3 class="project-title">AI Kingdom Simulator</h3>
+            <p class="project-desc">Short description of what this project does and why it matters. Replace this with your actual project description.</p>
+            <div class="project-links">
+              <a href="#" target="_blank" class="plink">↗ Live</a>
+              <a href="#" target="_blank" class="plink">⌥ Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="web">
+          <div class="project-img-wrap">
+            <!-- Replace with your project screenshot -->
+            <div class="project-img-placeholder">
+              <img src="assets/eventPlanner/ABC_manage_events.png" alt="Screenshot of ABC Event Management App Homepage">
+              <!-- <span class="placeholder-icon">◉</span> -->
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="project-link-btn" target="_blank">View Project →</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Jinja</span>
+              <span class="tag">Flask</span>
+              <span class="tag">SQL</span>
+            </div>
+            <h3 class="project-title">ABC Event Management Web App</h3>
+            <p class="project-desc">Short description of what this project does and why it matters. Replace this with your actual project description.</p>
+            <div class="project-links">
+              <a href="#" target="_blank" class="plink">↗ Live</a>
+              <a href="#" target="_blank" class="plink">⌥ Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="web">
+          <div class="project-img-wrap">
+            <div class="project-img-placeholder">
+              <img src="assets/linusLogs/mainScreen.png" alt="Screenshot of Linus's Logs main screen">
+              <!-- <span class="placeholder-icon">◌</span> -->
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="project-link-btn" target="_blank">View Project →</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">HTML</span>
+              <span class="tag">Kaplay</span>
+            </div>
+            <h3 class="project-title">Linus's Logs</h3>
+            <p class="project-desc">Short description of what this project does and why it matters. Replace this with your actual project description.</p>
+            <div class="project-links">
+              <a href="#" target="_blank" class="plink">↗ Live</a>
+              <a href="#" target="_blank" class="plink">⌥ Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="web">
+          <div class="project-img-wrap">
+            <div class="project-img-placeholder">
+              <img src="assets/hackathon/Artmosphere_homepage.png" alt="Screenshot of Artmosphere Homepage">
+              <!-- <span class="placeholder-icon">◈</span> -->
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="project-link-btn" target="_blank">View Project →</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+            </div>
+            <h3 class="project-title">The Artmosphere</h3>
+            <p class="project-desc">Short description of what this project does and why it matters. Replace this with your actual project description.</p>
+            <div class="project-links">
+              <a href="#" target="_blank" class="plink">↗ Live</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="web">
+          <div class="project-img-wrap">
+            <div class="project-img-placeholder">
+              <img src="assets/images/bucketList.png" alt="Screenshot of Bucket List App Homepage">
+              <!-- <span class="placeholder-icon">◌</span> -->
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="project-link-btn" target="_blank">View Project →</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+            </div>
+            <h3 class="project-title">My Travel Bucket List</h3>
+            <p class="project-desc">Short description of what this project does and why it matters. Replace this with your actual project description.</p>
+            <div class="project-links">
+              <a href="#" target="_blank" class="plink">↗ Live</a>
+              <a href="#" target="_blank" class="plink">⌥ Code</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="section-label">// skills</div>
+      <h2 class="section-title">Tech & Tools <span class="title-accent">✦</span></h2>
+
+      <div class="skills-layout">
+
+        <div class="skill-group">
+          <h3 class="skill-group-title">Programming Languages</h3>
+          <!-- Edit skill name and percentage (1–100) -->
+          <div class="skill-bar" data-pct="90">
+            <div class="skill-info"><span>Skill Name</span><span class="skill-pct">90%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-pct="80">
+            <div class="skill-info"><span>Skill Name</span><span class="skill-pct">80%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-pct="75">
+            <div class="skill-info"><span>Skill Name</span><span class="skill-pct">75%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group-title">Machine Learning & Data Science</h3>
+          <div class="skill-bar" data-pct="85">
+            <div class="skill-info"><span>Skill Name</span><span class="skill-pct">85%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-pct="70">
+            <div class="skill-info"><span>Skill Name</span><span class="skill-pct">70%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-pct="65">
+            <div class="skill-info"><span>Skill Name</span><span class="skill-pct">65%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group-title">Backend & Development Tools</h3>
+          <div class="skill-bar" data-pct="95">
+            <div class="skill-info"><span>Skill Name</span><span class="skill-pct">95%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-pct="88">
+            <div class="skill-info"><span>Skill Name</span><span class="skill-pct">88%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-pct="72">
+            <div class="skill-info"><span>Skill Name</span><span class="skill-pct">72%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="section-label">// experience</div>
+      <h2 class="section-title">Where I've Been <span class="title-accent">✦</span></h2>
+
+      <div class="timeline">
+
+        <!-- ╔══════════════════════════╗ -->
+        <!-- ║  DUPLICATE THIS ITEM     ║ -->
+        <!-- ║  for each role           ║ -->
+        <!-- ╚══════════════════════════╝ -->
+
+        <div class="timeline-item">
+          <div class="timeline-date">April 2026 — Current</div>
+          <div class="timeline-content">
+            <h3 class="timeline-role">Software Engineer Intern</h3>
+            <div class="timeline-company">Akido Labs</div>
+            <p class="timeline-desc">What you did, what you built, what impact you made. Keep it punchy and results-oriented.</p>
+            <div class="timeline-tags">
+              <span class="tag">Skill</span>
+              <span class="tag">Skill</span>
+              <span class="tag">Skill</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">June 2025 — 2026</div>
+          <div class="timeline-content">
+            <h3 class="timeline-role">Social Media Manager</h3>
+            <div class="timeline-company">Artificial Intelligence Club at Oregon State University</div>
+            <p class="timeline-desc">What you did, what you built, what impact you made. Keep it punchy and results-oriented.</p>
+            <div class="timeline-tags">
+              <span class="tag">Skill</span>
+              <span class="tag">Skill</span>
+              <span class="tag">Skill</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Sept. 2023 — 2024</div>
+          <div class="timeline-content">
+            <h3 class="timeline-role">Academic Tutor</h3>
+            <div class="timeline-company">Oregon State University - Academics for Student Athletes</div>
+            <p class="timeline-desc">What you did, what you built, what impact you made. Keep it punchy and results-oriented.</p>
+            <div class="timeline-tags">
+              <span class="tag">Skill</span>
+              <span class="tag">Skill</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">June 2023 — Sept. 2023</div>
+          <div class="timeline-content">
+            <h3 class="timeline-role">Software Engineering Intern</h3>
+            <div class="timeline-company">Dell Technologies</div>
+            <p class="timeline-desc">What you did, what you built, what impact you made. Keep it punchy and results-oriented.</p>
+            <div class="timeline-tags">
+              <span class="tag">Skill</span>
+              <span class="tag">Skill</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Aug. 2021 — 2022</div>
+          <div class="timeline-content">
+            <h3 class="timeline-role">Barista</h3>
+            <div class="timeline-company">Starbucks</div>
+            <p class="timeline-desc">What you did, what you built, what impact you made. Keep it punchy and results-oriented.</p>
+            <div class="timeline-tags">
+              <span class="tag">Skill</span>
+              <span class="tag">Skill</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BLOG / WRITING -->
+    <section class="section" id="blog">
+      <div class="section-label">// writing</div>
+      <h2 class="section-title">Words & Thoughts <span class="title-accent">✦</span></h2>
+
+      <div class="blog-grid">
+
+        <!-- ╔══════════════════════════╗ -->
+        <!-- ║  DUPLICATE THIS CARD     ║ -->
+        <!-- ║  for each blog post      ║ -->
+        <!-- ╚══════════════════════════╝ -->
+
+        <a href="#" class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-tag">Category</span>
+            <span class="blog-read">5 min read</span>
+          </div>
+          <h3 class="blog-title">Your Blog Post Title Here</h3>
+          <p class="blog-excerpt">A short excerpt or teaser for your blog post. Draw the reader in and make them want more.</p>
+          <div class="blog-date">Month 2025</div>
         </a>
-        <div class="centered">
-          <h1>
-            <span class="responsive-text">About Me</br >
-          </h1>
-        </div>
-      </div>
 
-      <div class="container">
-        <a href="projects.html">
-          <img src="images/bw-coast-scene.jpg" class="responsive-img">
+        <a href="#" class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-tag">Category</span>
+            <span class="blog-read">8 min read</span>
+          </div>
+          <h3 class="blog-title">Your Blog Post Title Here</h3>
+          <p class="blog-excerpt">A short excerpt or teaser for your blog post. Draw the reader in and make them want more.</p>
+          <div class="blog-date">Month 2025</div>
         </a>
-        <div class="centered">
-          <h1>
-            <span class="responsive-text">Projects</br >
-          </h1>
-        </div>
-      </div>
 
-      <div class="container">
-        <a href="contactMe.html">
-          <img src="images/coast-scene.jpg" class="responsive-img">
+        <a href="#" class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-tag">Category</span>
+            <span class="blog-read">4 min read</span>
+          </div>
+          <h3 class="blog-title">Your Blog Post Title Here</h3>
+          <p class="blog-excerpt">A short excerpt or teaser for your blog post. Draw the reader in and make them want more.</p>
+          <div class="blog-date">Month 2025</div>
         </a>
-        <div class="centered">
-          <h1>
-            <span class="responsive-text">Contact Me</br >
-          </h1>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-label">// contact</div>
+      <h2 class="section-title">Let's Connect <span class="title-accent">✦</span></h2>
+
+      <div class="contact-layout">
+        <div class="contact-left">
+          <p class="contact-intro">Have a project in mind, a question, or just want to say hi? My inbox is always open.</p>
+          <a href="mailto:siyasonpatki02@gmail.com" class="contact-email">siyasonpatki2@gmail.com</a>
+          <div class="contact-socials">
+            <a href="https://github.com/ssonpatki" target="_blank" class="contact-social-link">GitHub ↗</a>
+            <a href="https://linkedin.com/in/siya-sonpatki" target="_blank" class="contact-social-link">LinkedIn ↗</a>
+            <!-- Add more social links as needed -->
+          </div>
+        </div>
+        <div class="contact-right">
+          <div class="contact-card">
+            <div class="contact-card-label">Current status ✿</div>
+            <div class="contact-card-status">
+              <span class="pulse-dot"></span>
+              <!-- Update your availability status -->
+              Open to internships/co-ops & full-time roles 
+            </div>
+            <div class="contact-card-label" style="margin-top:1.5rem">Based in</div>
+            <div class="contact-card-location">Portland, OR (Open to Relocation) 🌍</div>
+            <div class="contact-card-label" style="margin-top:1.5rem">Timezone</div>
+            <div class="contact-card-tz">UTC-7 (Pacific Daylight Time)</div>
+          </div>
         </div>
       </div>
-    </main>
+    </section>
 
-    <footer>
-      <p>
-          &copy; 2024 Siya Sonpatki
-      </p>
+    <footer class="footer">
+      <span>Built by Siya Sonpatki</span>
+      <span class="footer-accent">♥ © 2026</span>
     </footer>
-  </body>
+
+  </main>
+
+  <!-- ░░ ACHIEVEMENT TOAST ░░ -->
+  <div class="ach-toast" id="achToast">
+    <span class="toast-icon">✦</span>
+    <div class="toast-body">
+      <div class="toast-title">Achievement Unlocked!</div>
+      <div class="toast-name" id="toastName"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
 </html>
